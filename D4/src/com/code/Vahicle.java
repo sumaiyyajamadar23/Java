@@ -21,7 +21,7 @@ public Vahicle( String chasisno,color vahicleColor,
 	 this.company=company;
 	 this.isAvailable=isAvailable;
 }
-public  Vahicle(String chasisno) 
+public  Vahicle(String chasisno, String clr, double netPrice, LocalDate validDate, String company2) 
 {
 this.chasisno=chasisno;	
 }

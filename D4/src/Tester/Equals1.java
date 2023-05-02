@@ -16,5 +16,4 @@ public class Equals1 {
 		System.out.println(v1.equals(v2));//f : ref equality -- t : replace ref equality by Unique ID (PK) equality : ch no
 		System.out.println(v1.hashCode()+" "+v2.hashCode());//different	
 	}
-
 }
