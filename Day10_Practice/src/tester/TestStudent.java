@@ -41,8 +41,8 @@ public class TestStudent {
 	   System.out.println(std);
       else
 	  System.out.println("Wrongggg!!!")
-  //5 Print name of specified subject  topper
-  //lists.stream()
+    //  5 Print name of specified subject  topper
+      //lists.stream()
      Optional<Student> std1= lists.stream()
       .filter(s->s.getSubject().equals(sub))
       .max((p1, p2) -> ((Double) p1.getGpa()).compareTo(p2.getGpa()));
@@ -50,7 +50,20 @@ public class TestStudent {
   if (std1.isPresent())
 	  System.out.println( std1.get().getName()+" Is topper of Subject:"+std1.get().getSubject());
 	  else
-	System.out.println("wrongggg!!!!!");
+	System.out.println("No product!!!!!");
+    //  6 .Print no of  failures for the specified subject chosen  from user.(gpa < 5 : failed case)
+      long s2=  lists.stream()
+     .filter(s->s.getSubject().equals(sub))
+     .filter(s->s.getGpa()<5)
+     .count();
+      System.out.println(s2);
+     //7. Display student names of all the students , from a specified city.
+     // Student s6=new Student(null, null, null, sub, s2)
+      System.out.println("Enter city");
+     String city=sc.next();
+      lists.stream()
+      .filter(s->s.getAddress().getCity().equals(city))
+      .forEach(s->System.out.println(s.getName()));
 
 		}
        
