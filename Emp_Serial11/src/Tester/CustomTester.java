@@ -18,10 +18,12 @@ public class CustomTester {
 		// TODO Auto-generated method stub
 		try(Scanner sc=new Scanner(System.in))
 		{
+			System.out.println("Enter file name:");
 		//Map<String, Emp> custMapMap = populateCustomMap();
 			String file=sc.nextLine();
 			restore(file);
 		Map<String, Emp> custMapMap=restore(file);
+		System.out.println("Restored map:"+custMapMap);
 		boolean exit=false;
 		while(!exit)
 		{System.out.println("1. Hire new emp"
