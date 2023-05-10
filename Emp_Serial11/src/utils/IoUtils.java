@@ -33,7 +33,7 @@ public class IoUtils
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			System.out.println("Error during de-serialization"+e);
 		return new HashMap<String, Emp>();
 		}
 		

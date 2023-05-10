@@ -20,6 +20,7 @@ public class CustomTester {
 		{
 		//Map<String, Emp> custMapMap = populateCustomMap();
 			String file=sc.nextLine();
+			restore(file);
 		Map<String, Emp> custMapMap=restore(file);
 		boolean exit=false;
 		while(!exit)
@@ -30,14 +31,11 @@ public class CustomTester {
 				+ "5. Sort emps as per join date n display the same."
 				+ "6. We can add many more options here..."
 				+ "0. Exit");
+		System.out.println("Enter your choice");
 			try
 			{
 				switch(sc.nextInt())
 				{
-				case 0:
-					exit=true;
-					StoreCustomDetail(file, custMapMap);
-					break;
 				case 1:
 					//1. Hire new emp
 					System.out.println("Enter Details:id,firstName,lastName,dept, joiningDate");
@@ -47,24 +45,43 @@ public class CustomTester {
 					break;
 				case 2:
 					System.out.println("All Employee Etails:");
-					
+					custMapMap.values()
+					.stream()
+					.forEach(System.out::println);
 					//2. List all emp details
 					break;
 				case 3:
 					//3. Promote an emp
 					break;
 				case 4:
-					//4. Delete emp details
+					///4. Delete emp details
+					System.out.println("Enter id:");
+					String id=sc.next();
+					 custMapMap.values()
+					.removeIf(s->s.getId().equals(id));
+					
+					break;
 				case 5:
+					System.out.println("Enter date to remove:");
+				custMapMap.values()
+					.stream()
+					.sorted((p1,p2)->(p1.getJoiningDate()).compareTo(p2.getJoiningDate()))
+					.forEach(System.out::println);
 					//5. Sort emps as per join date n display the same.
 					break;
-					
+				case 0:
+					exit=true;
+					StoreCustomDetail(file, custMapMap);
+					break;
+				default:
+					System.out.println("Invalid choice");
+					break;
 				}
 			}
 			catch(Exception e)
 			{
 				System.out.println(e);
-			}
+				sc.nextLine();			}
 		}
 //			System.out.println("Enter file name to Seri");
 //			StoreCustomDetail(sc.next(), custMapMap);
@@ -79,6 +96,5 @@ public class CustomTester {
 	     System.out.println(e);
 		}
 	}
-
 
 }
